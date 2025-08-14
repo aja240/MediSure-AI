@@ -125,27 +125,32 @@ def _get_all_text_from_collection(collection_name: str) -> str:
 def _detect_document_type(collection_name: str) -> tuple[str, str]:
     """
     Returns main_type, sub_type
-    main_type: claim | medical | hl7 | csv | general
-    sub_type: more granular, e.g., lab_report, prescription
+    main_type: claim | medical | hl7 | billing | csv | general
+    sub_type: more granular, e.g., insurance_claim, lab_report, billing_data
     """
     text = _get_all_text_from_collection(collection_name)
 
-    claim_markers = ["policy number", "claim number", "insurance provider", "coverage start", "coverage end"]
+    claim_markers = ["policy number", "claim number", "insurance provider", "coverage start", "coverage end", "plan type", "group number"]
+    billing_markers = ["invoice number", "billing amount", "total due", "payment date", "procedure code"]
     medical_markers = ["prescription", "diagnosis", "medication", "drug", "tablet", "capsule", "ml", "mg", "lab result", "blood test"]
     hl7_markers = ["MSH|", "PID|", "OBR|", "OBX|"]
-    csv_markers = [",", "\n"]
 
     main_type = "general"
     sub_type = None
 
-    if any(m in text for m in claim_markers):
+    # Check insurance claims first
+    if any(m in text.lower() for m in claim_markers):
         main_type = "claim"
         sub_type = "insurance_claim"
-    elif any(m in text for m in medical_markers):
+    # Optionally: detect billing separately
+    elif any(m in text.lower() for m in billing_markers):
+        main_type = "billing"
+        sub_type = "billing_data"
+    elif any(m in text.lower() for m in medical_markers):
         main_type = "medical"
-        if "prescription" in text:
+        if "prescription" in text.lower():
             sub_type = "prescription"
-        elif "lab result" in text or "blood test" in text:
+        elif "lab result" in text.lower() or "blood test" in text.lower():
             sub_type = "lab_report"
         else:
             sub_type = "medical_general"
@@ -157,7 +162,6 @@ def _detect_document_type(collection_name: str) -> tuple[str, str]:
         sub_type = "csv_data"
 
     return main_type, sub_type
-
 
 # ------------------------------------------------------------------------
 # Prompt Templates
@@ -304,6 +308,48 @@ Structured Summary:
 """
     return PromptTemplate(template=template, input_variables=["context", "question"])
 
+def _billing_data_prompt() -> PromptTemplate:
+    template = """
+You are an AI assistant specialized in billing and invoice data.
+
+Task:
+1) Validate each row for mandatory fields: Invoice Number, Patient ID, Service Date, Amount, Payment Status
+2) Identify missing or inconsistent fields
+3) Summarize totals and highlight discrepancies
+
+CSV/JSON/TXT Content:
+{context}
+
+Question:
+{question}
+
+Structured Summary:
+"""
+    return PromptTemplate(template=template, input_variables=["context", "question"])
+
+def _insurance_claim_prompt() -> PromptTemplate:
+    template = """
+You are an expert in medical insurance claim processing.
+
+Task:
+1) Validate the provided claim data for missing, blank, incomplete, or incorrect fields.
+2) Mandatory fields: Patient Info, Insurance Provider, Policy Number, Claim Number, Coverage Dates, Treatment & Billing details.
+3) Highlight any inconsistencies or missing info.
+
+Rules:
+- Field not found → mark as missing
+- Date of service outside coverage → inconsistent
+- Always include: "This analysis is educational only."
+
+Content:
+{context}
+
+Question:
+{question}
+
+Structured Summary:
+"""
+    return PromptTemplate(template=template, input_variables=["context", "question"])
 
 # ------------------------------------------------------------------------
 # Main QA entry point
@@ -327,8 +373,14 @@ def ask_question(collection_name: str, query: str = None):
         doc_type, sub_type = _detect_document_type(collection_name)
 
         if doc_type == "claim":
-            prompt = _claim_validation_prompt()
-            final_query = query or "Audit this claim form and list all potential rejection reasons."
+            # Use PDF-specific prompt if collection came from PDF
+            if collection_name.lower().endswith(".pdf"):
+                prompt = _claim_validation_prompt()
+                final_query = query or "Audit this PDF claim form and list all potential rejection reasons."
+            else:
+                # Use tabular/text prompt for CSV/JSON/TXT
+                prompt = _insurance_claim_prompt()
+                final_query = query or "Audit this insurance claim data and list all potential rejection reasons."
         elif doc_type == "medical":
             prompt = _medical_report_prompt()
             final_query = query or "Extract demographics, diagnosis, and analyze medicines."
@@ -338,6 +390,9 @@ def ask_question(collection_name: str, query: str = None):
         elif doc_type == "csv":
             prompt = _csv_prompt()
             final_query = query or "Validate CSV, highlight missing/inconsistent fields, summarize key metrics."
+        elif doc_type == "billing":
+            prompt = _billing_data_prompt()
+            final_query = query or "Validate billing records, highlight missing/inconsistent fields, and summarize key metrics."
         else:
             prompt = _general_document_prompt()
             final_query = query or "Summarize and validate this document."
