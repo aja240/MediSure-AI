@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import os
-from qa import process_pdf, ask_question,pdflist_collectionso
+from qa import process_document, ask_question,pdflist_collectionso
 
 app = FastAPI()
 
@@ -18,11 +18,11 @@ UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.post("/upload")
-async def upload_pdf(file: UploadFile = File(...)):
+async def upload_doc(file: UploadFile = File(...)):
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as f:
         f.write(await file.read())
-    process_pdf(file_path)
+    process_document(file_path)
     return {"message": f"Uploaded and processed {file.filename}","success": True}
 
 @app.post("/ask")

@@ -1,0 +1,3447 @@
+[
+  {
+    "invoice_id": "INV0001",
+    "patient_id": "P0001",
+    "patient_name": "Linda Doe",
+    "dob": "2003-02-21",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI175183",
+    "visit_date": "2023-03-28",
+    "doctor_name": "Jane Smith",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 150,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0002",
+    "patient_id": "P0002",
+    "patient_name": "John Williams",
+    "dob": "2003-12-01",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "BL270070",
+    "visit_date": "2024-05-22",
+    "doctor_name": "Bob Jones",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 44.66,
+    "balance_due": 15.34,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0003",
+    "patient_id": "P0003",
+    "patient_name": "Laura Johnson",
+    "dob": "1990-02-24",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI719821",
+    "visit_date": "2025-06-04",
+    "doctor_name": "John Garcia",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 43.21,
+    "balance_due": 31.79,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0004",
+    "patient_id": "P0004",
+    "patient_name": "Michael Davis",
+    "dob": "1979-05-14",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "HU684857",
+    "visit_date": "2023-02-25",
+    "doctor_name": "Laura Johnson",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 100,
+    "amount_paid": 52.64,
+    "balance_due": 47.36,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0005",
+    "patient_id": "P0005",
+    "patient_name": "Bob Miller",
+    "dob": "1992-03-12",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE321140",
+    "visit_date": "2023-01-06",
+    "doctor_name": "Bob Johnson",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 90.27,
+    "balance_due": 89.73,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0006",
+    "patient_id": "P0006",
+    "patient_name": "Laura Jones",
+    "dob": "1977-07-28",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "BL114243",
+    "visit_date": "2023-07-04",
+    "doctor_name": "Bob Miller",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0007",
+    "patient_id": "P0007",
+    "patient_name": "Michael Williams",
+    "dob": "1961-08-15",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "CI299299",
+    "visit_date": "2023-02-19",
+    "doctor_name": "Linda Johnson",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 50,
+    "amount_paid": 28.25,
+    "balance_due": 21.75,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0008",
+    "patient_id": "P0008",
+    "patient_name": "Linda Smith",
+    "dob": "1959-06-17",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "HU731168",
+    "visit_date": "2024-06-18",
+    "doctor_name": "Alice Garcia",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 315,
+    "amount_paid": 315,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0009",
+    "patient_id": "P0009",
+    "patient_name": "Alice Smith",
+    "dob": "1951-08-21",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "UN689958",
+    "visit_date": "2023-12-09",
+    "doctor_name": "David Martinez",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 230,
+    "amount_paid": 230,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0010",
+    "patient_id": "P0010",
+    "patient_name": "Linda Martinez",
+    "dob": "1963-10-29",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "HU659975",
+    "visit_date": "2023-11-20",
+    "doctor_name": "Alice Doe",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 50,
+    "amount_paid": 44.99,
+    "balance_due": 5.01,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0011",
+    "patient_id": "P0011",
+    "patient_name": "Jane Johnson",
+    "dob": "1976-10-13",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN921896",
+    "visit_date": "2024-11-13",
+    "doctor_name": "Mary Johnson",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 111.8,
+    "balance_due": 68.2,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0012",
+    "patient_id": "P0012",
+    "patient_name": "Laura Jones",
+    "dob": "2008-03-23",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE452188",
+    "visit_date": "2023-10-18",
+    "doctor_name": "Linda Doe",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 25,
+    "amount_paid": 18.14,
+    "balance_due": 6.86,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0013",
+    "patient_id": "P0013",
+    "patient_name": "Laura Doe",
+    "dob": "1986-08-11",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "AE262455",
+    "visit_date": "2024-08-26",
+    "doctor_name": "Michael Miller",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 330,
+    "amount_paid": 330,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0014",
+    "patient_id": "P0014",
+    "patient_name": "David Williams",
+    "dob": "1952-11-21",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "AE515540",
+    "visit_date": "2025-05-24",
+    "doctor_name": "Robert Miller",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 355,
+    "amount_paid": 355,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0015",
+    "patient_id": "P0015",
+    "patient_name": "Alice Johnson",
+    "dob": "1988-12-12",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "BL995231",
+    "visit_date": "2023-08-28",
+    "doctor_name": "Jane Martinez",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 315,
+    "amount_paid": 315,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0016",
+    "patient_id": "P0016",
+    "patient_name": "Linda Doe",
+    "dob": "1996-09-18",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI630479",
+    "visit_date": "2023-01-24",
+    "doctor_name": "Robert Johnson",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 200,
+    "amount_paid": 200,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0017",
+    "patient_id": "P0017",
+    "patient_name": "David Garcia",
+    "dob": "2000-03-05",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "UN921716",
+    "visit_date": "2025-02-03",
+    "doctor_name": "Jane Williams",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 330,
+    "amount_paid": 330,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0018",
+    "patient_id": "P0018",
+    "patient_name": "David Miller",
+    "dob": "2007-02-11",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "BL964455",
+    "visit_date": "2024-08-21",
+    "doctor_name": "Mary Smith",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 255,
+    "amount_paid": 255,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0019",
+    "patient_id": "P0019",
+    "patient_name": "Mary Davis",
+    "dob": "1984-12-31",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI872881",
+    "visit_date": "2024-01-12",
+    "doctor_name": "Michael Johnson",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 260,
+    "amount_paid": 260,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0020",
+    "patient_id": "P0020",
+    "patient_name": "Mary Davis",
+    "dob": "1954-06-14",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "CI666747",
+    "visit_date": "2025-03-31",
+    "doctor_name": "Alice Williams",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 240,
+    "amount_paid": 161.99,
+    "balance_due": 78.01,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0021",
+    "patient_id": "P0021",
+    "patient_name": "Michael Martinez",
+    "dob": "1961-07-21",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "UN398696",
+    "visit_date": "2024-12-11",
+    "doctor_name": "Robert Garcia",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 305,
+    "amount_paid": 305,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0022",
+    "patient_id": "P0022",
+    "patient_name": "Robert Miller",
+    "dob": "1985-07-07",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN866967",
+    "visit_date": "2025-02-01",
+    "doctor_name": "Michael Garcia",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 390,
+    "amount_paid": 390,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0023",
+    "patient_id": "P0023",
+    "patient_name": "Laura Davis",
+    "dob": "2008-01-06",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN817452",
+    "visit_date": "2025-04-07",
+    "doctor_name": "David Williams",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 50,
+    "amount_paid": 37.08,
+    "balance_due": 12.92,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0024",
+    "patient_id": "P0024",
+    "patient_name": "Alice Brown",
+    "dob": "1993-01-13",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU142745",
+    "visit_date": "2024-03-24",
+    "doctor_name": "Bob Brown",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 185,
+    "amount_paid": 126.0,
+    "balance_due": 59.0,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0025",
+    "patient_id": "P0025",
+    "patient_name": "Linda Johnson",
+    "dob": "1988-08-05",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "AE457818",
+    "visit_date": "2024-06-04",
+    "doctor_name": "Mary Jones",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 180,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0026",
+    "patient_id": "P0026",
+    "patient_name": "Robert Williams",
+    "dob": "1975-07-17",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN401311",
+    "visit_date": "2024-09-15",
+    "doctor_name": "Bob Jones",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 150,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0027",
+    "patient_id": "P0027",
+    "patient_name": "Michael Jones",
+    "dob": "1975-02-09",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "UN531843",
+    "visit_date": "2025-07-21",
+    "doctor_name": "Mary Jones",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 87.45,
+    "balance_due": 62.55,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0028",
+    "patient_id": "P0028",
+    "patient_name": "John Brown",
+    "dob": "1969-12-16",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "AE163009",
+    "visit_date": "2023-04-04",
+    "doctor_name": "Alice Smith",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 100,
+    "amount_paid": 100,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0029",
+    "patient_id": "P0029",
+    "patient_name": "Laura Martinez",
+    "dob": "1976-05-18",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU368714",
+    "visit_date": "2025-04-16",
+    "doctor_name": "David Smith",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 275,
+    "amount_paid": 275,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0030",
+    "patient_id": "P0030",
+    "patient_name": "Linda Miller",
+    "dob": "1957-07-06",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE383607",
+    "visit_date": "2023-10-26",
+    "doctor_name": "David Smith",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 150,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0031",
+    "patient_id": "P0031",
+    "patient_name": "Bob Williams",
+    "dob": "2006-09-30",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE582200",
+    "visit_date": "2024-05-13",
+    "doctor_name": "Mary Miller",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 110,
+    "amount_paid": 110,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0032",
+    "patient_id": "P0032",
+    "patient_name": "Laura Garcia",
+    "dob": "1952-07-05",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "BL848765",
+    "visit_date": "2024-09-05",
+    "doctor_name": "David Jones",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 44.28,
+    "balance_due": 15.72,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0033",
+    "patient_id": "P0033",
+    "patient_name": "Jane Doe",
+    "dob": "1952-03-12",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "UN973301",
+    "visit_date": "2023-12-22",
+    "doctor_name": "Mary Johnson",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 150,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0034",
+    "patient_id": "P0034",
+    "patient_name": "Linda Brown",
+    "dob": "1971-04-03",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN764550",
+    "visit_date": "2025-02-21",
+    "doctor_name": "Linda Garcia",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 50,
+    "amount_paid": 50,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0035",
+    "patient_id": "P0035",
+    "patient_name": "Linda Miller",
+    "dob": "1959-05-06",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "HU251826",
+    "visit_date": "2024-09-11",
+    "doctor_name": "Robert Jones",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 240,
+    "amount_paid": 240,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0036",
+    "patient_id": "P0036",
+    "patient_name": "Michael Johnson",
+    "dob": "1962-03-20",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI268487",
+    "visit_date": "2024-10-24",
+    "doctor_name": "Linda Brown",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 25,
+    "amount_paid": 25,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0037",
+    "patient_id": "P0037",
+    "patient_name": "John Martinez",
+    "dob": "1967-11-04",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU106232",
+    "visit_date": "2023-05-07",
+    "doctor_name": "Linda Johnson",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 75,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0038",
+    "patient_id": "P0038",
+    "patient_name": "Alice Jones",
+    "dob": "1952-10-30",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU314280",
+    "visit_date": "2023-11-16",
+    "doctor_name": "Linda Jones",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 50,
+    "amount_paid": 33.96,
+    "balance_due": 16.04,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0039",
+    "patient_id": "P0039",
+    "patient_name": "John Brown",
+    "dob": "1976-10-04",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI552670",
+    "visit_date": "2025-06-01",
+    "doctor_name": "Bob Martinez",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 330,
+    "amount_paid": 270.54,
+    "balance_due": 59.46,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0040",
+    "patient_id": "P0040",
+    "patient_name": "Michael Johnson",
+    "dob": "2009-06-23",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "BL393212",
+    "visit_date": "2023-01-27",
+    "doctor_name": "Bob Smith",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0041",
+    "patient_id": "P0041",
+    "patient_name": "Bob Davis",
+    "dob": "1956-06-13",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "AE223748",
+    "visit_date": "2023-09-22",
+    "doctor_name": "Jane Johnson",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 85,
+    "amount_paid": 85,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0042",
+    "patient_id": "P0042",
+    "patient_name": "Bob Smith",
+    "dob": "1996-11-21",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU865136",
+    "visit_date": "2024-02-09",
+    "doctor_name": "Jane Williams",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 390,
+    "amount_paid": 203.99,
+    "balance_due": 186.01,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0043",
+    "patient_id": "P0043",
+    "patient_name": "Bob Johnson",
+    "dob": "1956-10-01",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI125688",
+    "visit_date": "2023-05-09",
+    "doctor_name": "Michael Martinez",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 43.02,
+    "balance_due": 16.98,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0044",
+    "patient_id": "P0044",
+    "patient_name": "Alice Doe",
+    "dob": "1972-12-31",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "BL499277",
+    "visit_date": "2024-01-30",
+    "doctor_name": "Bob Brown",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 150,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0045",
+    "patient_id": "P0045",
+    "patient_name": "Mary Brown",
+    "dob": "1950-06-05",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI122874",
+    "visit_date": "2023-06-23",
+    "doctor_name": "Linda Doe",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0046",
+    "patient_id": "P0046",
+    "patient_name": "David Doe",
+    "dob": "1951-01-09",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE421660",
+    "visit_date": "2023-03-28",
+    "doctor_name": "Bob Williams",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 75,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0047",
+    "patient_id": "P0047",
+    "patient_name": "Laura Martinez",
+    "dob": "1970-01-03",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "AE814977",
+    "visit_date": "2023-07-17",
+    "doctor_name": "Michael Martinez",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 225,
+    "amount_paid": 225,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0048",
+    "patient_id": "P0048",
+    "patient_name": "John Smith",
+    "dob": "1999-08-04",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI771561",
+    "visit_date": "2023-01-28",
+    "doctor_name": "Mary Doe",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 205,
+    "amount_paid": 124.26,
+    "balance_due": 80.74,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0049",
+    "patient_id": "P0049",
+    "patient_name": "Linda Jones",
+    "dob": "1985-10-05",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "HU149708",
+    "visit_date": "2023-03-27",
+    "doctor_name": "John Brown",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 205,
+    "amount_paid": 139.6,
+    "balance_due": 65.4,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0050",
+    "patient_id": "P0050",
+    "patient_name": "Laura Brown",
+    "dob": "1994-07-10",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN218465",
+    "visit_date": "2024-10-28",
+    "doctor_name": "Robert Davis",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 330,
+    "amount_paid": 330,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0051",
+    "patient_id": "P0051",
+    "patient_name": "David Garcia",
+    "dob": "1969-03-14",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI823175",
+    "visit_date": "2025-01-09",
+    "doctor_name": "John Brown",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 260,
+    "amount_paid": 183.62,
+    "balance_due": 76.38,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0052",
+    "patient_id": "P0052",
+    "patient_name": "Mary Smith",
+    "dob": "1955-07-03",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI918641",
+    "visit_date": "2023-08-16",
+    "doctor_name": "Robert Williams",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 75,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0053",
+    "patient_id": "P0053",
+    "patient_name": "Laura Doe",
+    "dob": "1970-09-19",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "UN379523",
+    "visit_date": "2025-05-20",
+    "doctor_name": "Jane Davis",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 53.34,
+    "balance_due": 21.66,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0054",
+    "patient_id": "P0054",
+    "patient_name": "Alice Martinez",
+    "dob": "1985-02-27",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "BL775801",
+    "visit_date": "2024-09-05",
+    "doctor_name": "Robert Martinez",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 230,
+    "amount_paid": 230,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0055",
+    "patient_id": "P0055",
+    "patient_name": "Bob Martinez",
+    "dob": "1961-08-25",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI442310",
+    "visit_date": "2024-11-06",
+    "doctor_name": "John Miller",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 125,
+    "amount_paid": 125,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0056",
+    "patient_id": "P0056",
+    "patient_name": "Mary Johnson",
+    "dob": "1993-06-20",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN445648",
+    "visit_date": "2025-04-30",
+    "doctor_name": "Michael Brown",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 285,
+    "amount_paid": 285,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0057",
+    "patient_id": "P0057",
+    "patient_name": "Mary Johnson",
+    "dob": "1971-11-13",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI764740",
+    "visit_date": "2023-08-30",
+    "doctor_name": "Robert Doe",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 53.65,
+    "balance_due": 21.35,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0058",
+    "patient_id": "P0058",
+    "patient_name": "Michael Doe",
+    "dob": "1990-07-28",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU179857",
+    "visit_date": "2024-12-04",
+    "doctor_name": "Alice Smith",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 63.9,
+    "balance_due": 11.1,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0059",
+    "patient_id": "P0059",
+    "patient_name": "Linda Martinez",
+    "dob": "2003-04-11",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN275452",
+    "visit_date": "2024-03-04",
+    "doctor_name": "John Garcia",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 315,
+    "amount_paid": 315,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0060",
+    "patient_id": "P0060",
+    "patient_name": "Bob Williams",
+    "dob": "2001-12-26",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "UN331118",
+    "visit_date": "2023-05-27",
+    "doctor_name": "Michael Miller",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 240,
+    "amount_paid": 240,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0061",
+    "patient_id": "P0061",
+    "patient_name": "Alice Smith",
+    "dob": "2008-01-29",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN624242",
+    "visit_date": "2023-04-06",
+    "doctor_name": "Alice Garcia",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 175,
+    "amount_paid": 175,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0062",
+    "patient_id": "P0062",
+    "patient_name": "Alice Brown",
+    "dob": "1999-10-07",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN348266",
+    "visit_date": "2025-08-06",
+    "doctor_name": "Jane Brown",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 84.27,
+    "balance_due": 65.73,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0063",
+    "patient_id": "P0063",
+    "patient_name": "Robert Smith",
+    "dob": "1986-07-31",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "UN133365",
+    "visit_date": "2025-01-07",
+    "doctor_name": "Laura Doe",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 114.28,
+    "balance_due": 65.72,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0064",
+    "patient_id": "P0064",
+    "patient_name": "Laura Smith",
+    "dob": "1956-10-16",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "BL764254",
+    "visit_date": "2023-07-21",
+    "doctor_name": "Michael Williams",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 255,
+    "amount_paid": 255,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0065",
+    "patient_id": "P0065",
+    "patient_name": "Bob Martinez",
+    "dob": "1995-10-05",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "AE406586",
+    "visit_date": "2024-12-13",
+    "doctor_name": "Mary Doe",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 380,
+    "amount_paid": 380,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0066",
+    "patient_id": "P0066",
+    "patient_name": "Alice Johnson",
+    "dob": "1988-11-29",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "UN514070",
+    "visit_date": "2024-04-04",
+    "doctor_name": "Michael Johnson",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 105.1,
+    "balance_due": 44.9,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0067",
+    "patient_id": "P0067",
+    "patient_name": "David Jones",
+    "dob": "1970-12-19",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE548828",
+    "visit_date": "2023-03-24",
+    "doctor_name": "Jane Jones",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 230,
+    "amount_paid": 230,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0068",
+    "patient_id": "P0068",
+    "patient_name": "David Brown",
+    "dob": "1972-06-30",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "HU814375",
+    "visit_date": "2024-06-01",
+    "doctor_name": "Linda Garcia",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 40.69,
+    "balance_due": 19.31,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0069",
+    "patient_id": "P0069",
+    "patient_name": "Robert Miller",
+    "dob": "1972-08-04",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN423763",
+    "visit_date": "2025-02-02",
+    "doctor_name": "Alice Jones",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 235,
+    "amount_paid": 143.06,
+    "balance_due": 91.94,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0070",
+    "patient_id": "P0070",
+    "patient_name": "Robert Johnson",
+    "dob": "2007-01-05",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "BL541835",
+    "visit_date": "2023-01-26",
+    "doctor_name": "Linda Smith",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 380,
+    "amount_paid": 380,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0071",
+    "patient_id": "P0071",
+    "patient_name": "Jane Garcia",
+    "dob": "1976-06-08",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "BL229917",
+    "visit_date": "2023-11-25",
+    "doctor_name": "Alice Jones",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 110,
+    "amount_paid": 110,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0072",
+    "patient_id": "P0072",
+    "patient_name": "John Doe",
+    "dob": "1985-02-01",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI404386",
+    "visit_date": "2024-05-21",
+    "doctor_name": "Bob Miller",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 45.7,
+    "balance_due": 29.3,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0073",
+    "patient_id": "P0073",
+    "patient_name": "Laura Smith",
+    "dob": "1960-10-26",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI611517",
+    "visit_date": "2024-07-17",
+    "doctor_name": "Bob Garcia",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 180,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0074",
+    "patient_id": "P0074",
+    "patient_name": "Alice Smith",
+    "dob": "2007-06-01",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE818601",
+    "visit_date": "2023-02-15",
+    "doctor_name": "David Garcia",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 118.3,
+    "balance_due": 31.7,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0075",
+    "patient_id": "P0075",
+    "patient_name": "Laura Johnson",
+    "dob": "2004-11-16",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "BL942023",
+    "visit_date": "2024-11-02",
+    "doctor_name": "Jane Miller",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 121.53,
+    "balance_due": 28.47,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0076",
+    "patient_id": "P0076",
+    "patient_name": "John Brown",
+    "dob": "1972-12-07",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI914299",
+    "visit_date": "2025-04-14",
+    "doctor_name": "Bob Jones",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 240,
+    "amount_paid": 152.68,
+    "balance_due": 87.32,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0077",
+    "patient_id": "P0077",
+    "patient_name": "Michael Smith",
+    "dob": "1982-05-15",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "CI208961",
+    "visit_date": "2023-09-20",
+    "doctor_name": "Linda Smith",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 175,
+    "amount_paid": 175,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0078",
+    "patient_id": "P0078",
+    "patient_name": "Robert Williams",
+    "dob": "1984-07-22",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN188938",
+    "visit_date": "2025-05-31",
+    "doctor_name": "Jane Smith",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 305,
+    "amount_paid": 167.46,
+    "balance_due": 137.54,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0079",
+    "patient_id": "P0079",
+    "patient_name": "Michael Martinez",
+    "dob": "1995-10-03",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "AE229835",
+    "visit_date": "2025-08-08",
+    "doctor_name": "Mary Davis",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 200,
+    "amount_paid": 133.24,
+    "balance_due": 66.76,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0080",
+    "patient_id": "P0080",
+    "patient_name": "Alice Smith",
+    "dob": "1959-09-27",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "UN630942",
+    "visit_date": "2023-11-19",
+    "doctor_name": "Michael Jones",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 45.85,
+    "balance_due": 14.15,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0081",
+    "patient_id": "P0081",
+    "patient_name": "Michael Williams",
+    "dob": "1966-08-16",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE335670",
+    "visit_date": "2023-11-12",
+    "doctor_name": "John Williams",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 200,
+    "amount_paid": 116.55,
+    "balance_due": 83.45,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0082",
+    "patient_id": "P0082",
+    "patient_name": "Bob Garcia",
+    "dob": "2003-09-18",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "BL690677",
+    "visit_date": "2025-05-24",
+    "doctor_name": "Alice Martinez",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 255,
+    "amount_paid": 255,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0083",
+    "patient_id": "P0083",
+    "patient_name": "Linda Jones",
+    "dob": "1954-12-15",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI182877",
+    "visit_date": "2023-08-31",
+    "doctor_name": "Mary Garcia",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 225,
+    "amount_paid": 174.32,
+    "balance_due": 50.68,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0084",
+    "patient_id": "P0084",
+    "patient_name": "Michael Martinez",
+    "dob": "1981-08-31",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN779697",
+    "visit_date": "2023-10-18",
+    "doctor_name": "Bob Doe",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 315,
+    "amount_paid": 315,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0085",
+    "patient_id": "P0085",
+    "patient_name": "John Johnson",
+    "dob": "1960-07-25",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "AE570792",
+    "visit_date": "2023-08-25",
+    "doctor_name": "Michael Smith",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 180,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0086",
+    "patient_id": "P0086",
+    "patient_name": "David Martinez",
+    "dob": "1980-04-10",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI932329",
+    "visit_date": "2025-03-04",
+    "doctor_name": "Mary Miller",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 160,
+    "amount_paid": 83.65,
+    "balance_due": 76.35,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0087",
+    "patient_id": "P0087",
+    "patient_name": "Michael Miller",
+    "dob": "1969-12-26",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "CI653188",
+    "visit_date": "2023-07-31",
+    "doctor_name": "David Martinez",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0088",
+    "patient_id": "P0088",
+    "patient_name": "Laura Johnson",
+    "dob": "1957-09-11",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE488157",
+    "visit_date": "2023-08-11",
+    "doctor_name": "Laura Davis",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 135,
+    "amount_paid": 135,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0089",
+    "patient_id": "P0089",
+    "patient_name": "Alice Martinez",
+    "dob": "1960-06-18",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "AE779370",
+    "visit_date": "2023-10-22",
+    "doctor_name": "Linda Garcia",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 38.16,
+    "balance_due": 36.84,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0090",
+    "patient_id": "P0090",
+    "patient_name": "Robert Martinez",
+    "dob": "1954-09-21",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "BL604308",
+    "visit_date": "2023-05-11",
+    "doctor_name": "Mary Garcia",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 85,
+    "amount_paid": 45.65,
+    "balance_due": 39.35,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0091",
+    "patient_id": "P0091",
+    "patient_name": "John Doe",
+    "dob": "1996-12-20",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI137610",
+    "visit_date": "2025-07-14",
+    "doctor_name": "Michael Martinez",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 75,
+    "amount_paid": 43.56,
+    "balance_due": 31.44,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0092",
+    "patient_id": "P0092",
+    "patient_name": "David Davis",
+    "dob": "1959-10-13",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "CI759517",
+    "visit_date": "2025-04-19",
+    "doctor_name": "Robert Brown",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 150,
+    "amount_paid": 114.93,
+    "balance_due": 35.07,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0093",
+    "patient_id": "P0093",
+    "patient_name": "Linda Miller",
+    "dob": "1979-02-10",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI950218",
+    "visit_date": "2023-09-01",
+    "doctor_name": "Jane Miller",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 135,
+    "amount_paid": 67.8,
+    "balance_due": 67.2,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0094",
+    "patient_id": "P0094",
+    "patient_name": "David Miller",
+    "dob": "1958-02-22",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "HU862345",
+    "visit_date": "2024-09-05",
+    "doctor_name": "Robert Smith",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      }
+    ],
+    "total_amount": 125,
+    "amount_paid": 86.74,
+    "balance_due": 38.26,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0095",
+    "patient_id": "P0095",
+    "patient_name": "John Martinez",
+    "dob": "1963-01-31",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "HU679903",
+    "visit_date": "2024-05-16",
+    "doctor_name": "Robert Doe",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 205,
+    "amount_paid": 138.92,
+    "balance_due": 66.08,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0096",
+    "patient_id": "P0096",
+    "patient_name": "John Davis",
+    "dob": "1990-04-19",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "HU300692",
+    "visit_date": "2025-05-01",
+    "doctor_name": "Linda Williams",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 240,
+    "amount_paid": 240,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0097",
+    "patient_id": "P0097",
+    "patient_name": "Bob Miller",
+    "dob": "1963-09-22",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "AE712821",
+    "visit_date": "2025-07-24",
+    "doctor_name": "Alice Williams",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 100,
+    "amount_paid": 100,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0098",
+    "patient_id": "P0098",
+    "patient_name": "Mary Williams",
+    "dob": "1990-07-11",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI822897",
+    "visit_date": "2024-10-05",
+    "doctor_name": "Alice Martinez",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 205,
+    "amount_paid": 129.19,
+    "balance_due": 75.81,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0099",
+    "patient_id": "P0099",
+    "patient_name": "Michael Martinez",
+    "dob": "1986-03-19",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE472146",
+    "visit_date": "2023-02-08",
+    "doctor_name": "Jane Miller",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 180,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0100",
+    "patient_id": "P0100",
+    "patient_name": "Robert Garcia",
+    "dob": "1959-08-27",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE927307",
+    "visit_date": "2023-08-02",
+    "doctor_name": "Laura Martinez",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 255,
+    "amount_paid": 255,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0101",
+    "patient_id": "P0101",
+    "patient_name": "Michael Garcia",
+    "dob": "2007-07-19",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "AE248192",
+    "visit_date": "2025-08-13",
+    "doctor_name": "Jane Smith",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 160,
+    "amount_paid": 99.44,
+    "balance_due": 60.56,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0102",
+    "patient_id": "P0102",
+    "patient_name": "Bob Martinez",
+    "dob": "2006-05-21",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "CI686562",
+    "visit_date": "2025-04-14",
+    "doctor_name": "Michael Garcia",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 260,
+    "amount_paid": 260,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0103",
+    "patient_id": "P0103",
+    "patient_name": "Mary Davis",
+    "dob": "1954-11-22",
+    "gender": "Female",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "HU730451",
+    "visit_date": "2025-08-11",
+    "doctor_name": "Mary Smith",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0104",
+    "patient_id": "P0104",
+    "patient_name": "John Martinez",
+    "dob": "1951-11-18",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "BL666397",
+    "visit_date": "2025-07-09",
+    "doctor_name": "Michael Doe",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 405,
+    "amount_paid": 405,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0105",
+    "patient_id": "P0105",
+    "patient_name": "Linda Martinez",
+    "dob": "1979-12-30",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "AE818447",
+    "visit_date": "2023-03-30",
+    "doctor_name": "Laura Johnson",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 285,
+    "amount_paid": 226.28,
+    "balance_due": 58.72,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0106",
+    "patient_id": "P0106",
+    "patient_name": "Linda Williams",
+    "dob": "1982-07-26",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "UN610177",
+    "visit_date": "2025-03-25",
+    "doctor_name": "Robert Smith",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 100,
+    "amount_paid": 86.51,
+    "balance_due": 13.49,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0107",
+    "patient_id": "P0107",
+    "patient_name": "Bob Doe",
+    "dob": "2005-09-27",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI762114",
+    "visit_date": "2023-09-04",
+    "doctor_name": "Bob Brown",
+    "doctor_specialty": "General Medicine",
+    "diagnosis": "Flu",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 390,
+    "amount_paid": 215.63,
+    "balance_due": 174.37,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0108",
+    "patient_id": "P0108",
+    "patient_name": "Laura Smith",
+    "dob": "1985-03-15",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "BL243832",
+    "visit_date": "2024-06-19",
+    "doctor_name": "Linda Davis",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 25,
+    "amount_paid": 25,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0109",
+    "patient_id": "P0109",
+    "patient_name": "Mary Williams",
+    "dob": "2003-08-01",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "UN761127",
+    "visit_date": "2025-06-05",
+    "doctor_name": "Laura Garcia",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 235,
+    "amount_paid": 235,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0110",
+    "patient_id": "P0110",
+    "patient_name": "Michael Doe",
+    "dob": "1962-11-10",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "CI314506",
+    "visit_date": "2024-08-20",
+    "doctor_name": "David Davis",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 185,
+    "amount_paid": 109.69,
+    "balance_due": 75.31,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0111",
+    "patient_id": "P0111",
+    "patient_name": "Bob Jones",
+    "dob": "1973-06-13",
+    "gender": "Male",
+    "insurance_provider": "Humana",
+    "insurance_number": "CI749419",
+    "visit_date": "2024-02-25",
+    "doctor_name": "Bob Johnson",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Hypertension",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 205,
+    "amount_paid": 157.68,
+    "balance_due": 47.32,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0112",
+    "patient_id": "P0112",
+    "patient_name": "Jane Johnson",
+    "dob": "1964-10-22",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "BL839090",
+    "visit_date": "2025-07-23",
+    "doctor_name": "Jane Brown",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 113.95,
+    "balance_due": 66.05,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0113",
+    "patient_id": "P0113",
+    "patient_name": "Jane Davis",
+    "dob": "1988-10-21",
+    "gender": "Male",
+    "insurance_provider": "Cigna",
+    "insurance_number": "HU267918",
+    "visit_date": "2024-08-11",
+    "doctor_name": "John Williams",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      }
+    ],
+    "total_amount": 135,
+    "amount_paid": 135,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0114",
+    "patient_id": "P0114",
+    "patient_name": "Robert Garcia",
+    "dob": "1976-02-17",
+    "gender": "Female",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI800177",
+    "visit_date": "2023-03-09",
+    "doctor_name": "Bob Davis",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 60,
+    "amount_paid": 60,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0115",
+    "patient_id": "P0115",
+    "patient_name": "John Brown",
+    "dob": "1997-09-28",
+    "gender": "Female",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE696988",
+    "visit_date": "2025-04-15",
+    "doctor_name": "Linda Jones",
+    "doctor_specialty": "Cardiology",
+    "diagnosis": "Diabetes",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 25,
+    "amount_paid": 25,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0116",
+    "patient_id": "P0116",
+    "patient_name": "Mary Williams",
+    "dob": "1978-03-11",
+    "gender": "Male",
+    "insurance_provider": "BlueCross",
+    "insurance_number": "CI698167",
+    "visit_date": "2025-07-04",
+    "doctor_name": "John Garcia",
+    "doctor_specialty": "Neurology",
+    "diagnosis": "Asthma",
+    "procedure_codes": [
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      },
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      }
+    ],
+    "total_amount": 175,
+    "amount_paid": 124.56,
+    "balance_due": 50.44,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0117",
+    "patient_id": "P0117",
+    "patient_name": "Laura Davis",
+    "dob": "1979-01-30",
+    "gender": "Male",
+    "insurance_provider": "UnitedHealth",
+    "insurance_number": "HU316896",
+    "visit_date": "2024-11-08",
+    "doctor_name": "Robert Martinez",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "36415",
+        "description": "Venipuncture",
+        "amount": 25
+      },
+      {
+        "code": "80053",
+        "description": "Basic Metabolic Panel",
+        "amount": 75
+      },
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      }
+    ],
+    "total_amount": 160,
+    "amount_paid": 101.73,
+    "balance_due": 58.27,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0118",
+    "patient_id": "P0118",
+    "patient_name": "Robert Doe",
+    "dob": "1991-02-13",
+    "gender": "Female",
+    "insurance_provider": "Humana",
+    "insurance_number": "AE253841",
+    "visit_date": "2023-03-08",
+    "doctor_name": "Robert Brown",
+    "doctor_specialty": "Pediatrics",
+    "diagnosis": "Back Pain",
+    "procedure_codes": [
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 180,
+    "amount_paid": 106.48,
+    "balance_due": 73.52,
+    "status": "Partial Payment"
+  },
+  {
+    "invoice_id": "INV0119",
+    "patient_id": "P0119",
+    "patient_name": "Jane Williams",
+    "dob": "1983-07-10",
+    "gender": "Female",
+    "insurance_provider": "Cigna",
+    "insurance_number": "BL757095",
+    "visit_date": "2024-03-02",
+    "doctor_name": "Linda Martinez",
+    "doctor_specialty": "Orthopedics",
+    "diagnosis": "Migraine",
+    "procedure_codes": [
+      {
+        "code": "93000",
+        "description": "Electrocardiogram",
+        "amount": 50
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      }
+    ],
+    "total_amount": 230,
+    "amount_paid": 230,
+    "balance_due": 0,
+    "status": "Paid"
+  },
+  {
+    "invoice_id": "INV0120",
+    "patient_id": "P0120",
+    "patient_name": "Linda Doe",
+    "dob": "1985-02-02",
+    "gender": "Male",
+    "insurance_provider": "Aetna",
+    "insurance_number": "AE156219",
+    "visit_date": "2023-12-07",
+    "doctor_name": "Linda Miller",
+    "doctor_specialty": "Dermatology",
+    "diagnosis": "Acne",
+    "procedure_codes": [
+      {
+        "code": "85025",
+        "description": "Complete Blood Count",
+        "amount": 60
+      },
+      {
+        "code": "99214",
+        "description": "Office/outpatient visit, est",
+        "amount": 180
+      },
+      {
+        "code": "99213",
+        "description": "Office/outpatient visit, est",
+        "amount": 150
+      }
+    ],
+    "total_amount": 390,
+    "amount_paid": 228.65,
+    "balance_due": 161.35,
+    "status": "Partial Payment"
+  }
+]

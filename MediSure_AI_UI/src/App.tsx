@@ -1,70 +1,65 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FileText, MessageCircle, Upload } from 'lucide-react';
 import FileUploader from './components/FileUploader';
-import PDFSelector from './components/PDFSelector';
+import DocumentSelector from './components/DocumentSelector';
 import ChatBox from './components/ChatBox';
 import ToastContainer from './components/ToastContainer';
 import { useToast } from './hooks/useToast';
-import { pdfApi } from './services/api';
-import { PDFItem } from './types';
+import { pdfApi } from './services/api'; // You can rename this API later
+import { DocumentItem } from './types';
 
 function App() {
-  const [pdfList, setPdfList] = useState<PDFItem[]>([]);
-  const [selectedPDF, setSelectedPDF] = useState<string | null>(null);
-  const [isLoadingPDFs, setIsLoadingPDFs] = useState(false);
-  const [pdfListError, setPdfListError] = useState<string | null>(null);
+  const [documentList, setDocumentList] = useState<DocumentItem[]>([]);
+  const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
+  const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
+  const [documentListError, setDocumentListError] = useState<string | null>(null);
   const { toasts, removeToast, error: showError } = useToast();
 
-  // Fetch PDF list
-  const fetchPDFList = useCallback(async () => {
-    setIsLoadingPDFs(true);
-    setPdfListError(null);
-    
+  // Fetch document list
+  const fetchDocumentList = useCallback(async () => {
+    setIsLoadingDocuments(true);
+    setDocumentListError(null);
     try {
-      const pdfs = await pdfApi.getPDFList();
-      setPdfList(pdfs);
-      
-      // If current selection is no longer available, reset it
-      if (selectedPDF && !pdfs.some(pdf => pdf.name === selectedPDF)) {
-        setSelectedPDF(null);
+      const docs = await pdfApi.getPDFList(); // Replace with generic document API if needed
+      setDocumentList(docs);
+      if (selectedDocument && !docs.some(doc => doc.name === selectedDocument)) {
+        setSelectedDocument(null);
       }
-      
-      return pdfs; // Return the fetched PDFs for chaining
+      return docs;
     } catch (err: any) {
-      console.error('Failed to fetch PDF list:', err);
-      const errorMessage = err.message || 'Failed to load PDF list';
-      setPdfListError(errorMessage);
+      const errorMessage = err.message || 'Failed to load documents';
+      setDocumentListError(errorMessage);
       showError(errorMessage);
-      throw err; // Re-throw for error handling in calling code
+      throw err;
     } finally {
-      setIsLoadingPDFs(false);
+      setIsLoadingDocuments(false);
     }
-  }, [selectedPDF, showError]);
+  }, [selectedDocument, showError]);
 
   // Initial load
   useEffect(() => {
-    fetchPDFList();
-  }, [fetchPDFList]);
+    fetchDocumentList();
+  }, [fetchDocumentList]);
 
+  // Handle selection
+  const handleSelectDocument = (docName: string) => {
+    setSelectedDocument(docName);
+  };
+
+  // Handle upload success
   const handleUploadSuccess = useCallback(async (uploadedFileName: string) => {
-    // Refresh PDF list and auto-select the uploaded PDF
     try {
-      await fetchPDFList();
-      // Auto-select the uploaded PDF after the list is refreshed
-      setSelectedPDF(uploadedFileName);
+      await fetchDocumentList();
+      setSelectedDocument(uploadedFileName);
     } catch (err) {
       console.error('Error after upload:', err);
     }
-  }, [fetchPDFList]);
-
-  const handleSelectPDF = (pdfName: string) => {
-    setSelectedPDF(pdfName);
-  };
+  }, [fetchDocumentList]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <ToastContainer toasts={toasts} onRemove={removeToast} />
-      
+
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-white/20 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -77,20 +72,20 @@ function App() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   MediSure AI
                 </h1>
-                <p className="text-gray-600 mt-1">Upload PDFs and ask questions about their content</p>
+                <p className="text-gray-600 mt-1">Upload documents and ask questions about their content</p>
               </div>
             </div>
-            
+
             {/* Status Indicators */}
             <div className="hidden lg:flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${pdfList.length > 0 ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                <span className="text-sm text-gray-600">{pdfList.length} PDFs available</span>
+                <div className={`w-3 h-3 rounded-full ${documentList.length > 0 ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                <span className="text-sm text-gray-600">{documentList.length} documents available</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${selectedPDF ? 'bg-blue-500' : 'bg-gray-300'}`}></div>
+                <div className={`w-3 h-3 rounded-full ${selectedDocument ? 'bg-blue-500' : 'bg-gray-300'}`}></div>
                 <span className="text-sm text-gray-600">
-                  {selectedPDF ? 'PDF selected' : 'No PDF selected'}
+                  {selectedDocument ? 'Document selected' : 'No document selected'}
                 </span>
               </div>
             </div>
@@ -104,18 +99,18 @@ function App() {
           {/* Left Column - Upload & Select */}
           <div className="lg:col-span-1 space-y-8">
             <FileUploader onUploadSuccess={handleUploadSuccess} />
-            <PDFSelector
-              pdfList={pdfList}
-              selectedPDF={selectedPDF}
-              onSelectPDF={handleSelectPDF}
-              loading={isLoadingPDFs}
-              error={pdfListError}
+            <DocumentSelector
+              documentList={documentList}
+              selectedDocument={selectedDocument}
+              onSelectDocument={handleSelectDocument}
+              loading={isLoadingDocuments}
+              error={documentListError}
             />
           </div>
 
           {/* Right Column - Chat */}
           <div className="lg:col-span-2">
-            <ChatBox selectedPDF={selectedPDF} />
+            <ChatBox selectedDocument={selectedDocument} />
           </div>
         </div>
 
@@ -127,30 +122,30 @@ function App() {
             </div>
             <span>How to Use</span>
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center space-y-4">
               <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center">
                 <Upload className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">1. Upload PDF</h3>
-              <p className="text-gray-600">Drag and drop or click to upload your PDF document (max 10MB)</p>
+              <h3 className="text-lg font-semibold text-gray-900">1. Upload Document</h3>
+              <p className="text-gray-600">Drag and drop or click to upload your document (max 10MB)</p>
             </div>
-            
+
             <div className="text-center space-y-4">
               <div className="w-16 h-16 mx-auto bg-teal-100 rounded-full flex items-center justify-center">
                 <FileText className="w-8 h-8 text-teal-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">2. Select PDF</h3>
-              <p className="text-gray-600">Choose from your uploaded PDFs in the dropdown menu</p>
+              <h3 className="text-lg font-semibold text-gray-900">2. Select Document</h3>
+              <p className="text-gray-600">Choose from your uploaded documents in the dropdown menu</p>
             </div>
-            
+
             <div className="text-center space-y-4">
               <div className="w-16 h-16 mx-auto bg-purple-100 rounded-full flex items-center justify-center">
                 <MessageCircle className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">3. Ask Questions</h3>
-              <p className="text-gray-600">Start a conversation about your PDF content with AI assistance</p>
+              <p className="text-gray-600">Start a conversation about your document content with AI assistance</p>
             </div>
           </div>
         </div>

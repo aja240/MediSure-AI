@@ -1,0 +1,8 @@
+MSH|^~\&|LIS|LabCenter|HIS|MainHospital|20250814124500||ORU^R01|MSG00001|P|2.5
+PID|1||123456^^^HOSP^MR||Doe^John^A||19800115|M|||123 Main St^^Metropolis^NY^12345^USA||(555)555-1234|||S|C|123456789
+OBR|1|ORD0001|LAB0001|CBC^Complete Blood Count^L|||20250814120000|||||||20250814123000|||Dr^Smith^Alice|||20250814124500||LAB
+OBX|1|NM|WBC^White Blood Cells^L||7.2|10^3/uL|4.0-10.5|N|||F
+OBX|2|NM|RBC^Red Blood Cells^L||5.1|10^6/uL|4.5-5.9|N|||F
+OBX|3|NM|HGB^Hemoglobin^L||15.0|g/dL|13.5-17.5|N|||F
+OBX|4|NM|HCT^Hematocrit^L||44|%|41-53|N|||F
+OBX|5|NM|PLT^Platelets^L||250|10^3/uL|150-400|N|||F

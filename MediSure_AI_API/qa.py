@@ -5,90 +5,113 @@ from datetime import datetime
 import os
 import chromadb
 from dotenv import load_dotenv
+import pprint
 
-# Import LangChain PDF loader to extract text from PDF files
+
+# LangChain PDF loader & text splitter
 from langchain_community.document_loaders import PyPDFLoader
-
-# Import text splitter to break text into smaller, manageable chunks
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Import OpenAI Embeddings and Chat LLM from langchain_openai
+from langchain.schema import Document
+# OpenAI embeddings & Chat LLM
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
-# Import Chroma (vector database) for storing document embeddings
-from langchain_community.vectorstores import Chroma
-
-# Import RetrievalQA chain to connect LLM with vector DB retriever
+# Vector DB & RetrievalQA
+from langchain_chroma import Chroma
 from langchain.chains import RetrievalQA
-
-# Import PromptTemplate to create custom prompts
 from langchain.prompts import PromptTemplate
-
 
 # ------------------------------------------------------------------------
 # Environment & persistence setup
 # ------------------------------------------------------------------------
-
-# Load environment variables from .env file (e.g., API keys)
 load_dotenv()
-
-# Directory to store persistent Chroma vector DB files
 CHROMA_DIR = "vector_store"
 os.makedirs(CHROMA_DIR, exist_ok=True)
 
 
 # ------------------------------------------------------------------------
-# PDF processing → Vector store
+# Document loaders
 # ------------------------------------------------------------------------
+def is_pdf(file_path: str) -> bool:
+    with open(file_path, "rb") as f:
+        return f.read(4) == b"%PDF"
 
-def process_pdf(pdf_path: str):
-    """
-    Processes a PDF file:
-    - Extracts text from the PDF using PyPDFLoader.
-    - Splits text into smaller chunks for better embedding and retrieval.
-    - Generates embedding vectors for each chunk using OpenAI Embeddings.
-    - Stores these vectors in a persistent Chroma vector database (one collection per PDF).
-    """
-    # Step 1: Load the PDF and extract documents (pages or sections)
-    loader = PyPDFLoader(pdf_path)
-    documents = loader.load()
 
-    # Step 2: Split extracted text into manageable chunks
+
+def load_hl7(file_path: str):
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    messages = content.split("MSH|")
+    docs = []
+    for msg in messages:
+        if msg.strip():
+            docs.append(Document(page_content="MSH|" + msg))
+    return docs
+
+def load_txt(file_path: str):
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    return [Document(page_content=content)]
+
+def load_csv(file_path: str):
+    import pandas as pd
+    df = pd.read_csv(file_path)
+    # Convert each row to a Document object
+    docs = []
+    for i, row in df.iterrows():
+        docs.append(Document(page_content=row.to_json()))
+    return docs
+
+
+def process_document(file_path: str):
+    """
+    Processes a PDF, HL7, CSV or TXT file:
+    - Extracts text
+    - Splits into chunks
+    - Generates embeddings
+    - Stores in persistent Chroma collection (one per file)
+    """
+    # --- Load documents ---'
+    pprint.pprint(f"Processing file: {file_path}")
+    if is_pdf(file_path):
+        loader = PyPDFLoader(file_path)
+        documents = loader.load()
+    elif file_path.endswith(".hl7"):
+        documents = load_hl7(file_path)
+    elif file_path.endswith(".txt"):
+         documents = load_txt(file_path)
+    elif file_path.endswith(".json"):
+         documents = load_txt(file_path)
+    elif file_path.endswith(".csv"):
+         documents = load_txt(file_path)
+    else:
+        raise ValueError("Unsupported file type. Only PDF, HL7, or TXT allowed.")
+
+    # --- Split into chunks ---
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     chunks = splitter.split_documents(documents)
 
-    # Step 3: Get the OpenAI API key from environment variables
+    # --- Generate embeddings ---
     api_key = os.getenv("OPENAI_API_KEY")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small", api_key=api_key)
 
-    # Step 4: Create an embeddings object for OpenAI
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small",   # Lightweight, high-quality embeddings
-        api_key=api_key
-    )
-
-    # Step 5: Store chunk embeddings in Chroma vector DB (collection per PDF)
-    collection_name = os.path.basename(pdf_path)  # Use PDF file name as collection name
+    # --- Store in Chroma ---
+    collection_name = os.path.basename(file_path)
+    
     vectordb = Chroma.from_documents(
-        chunks,
-        embedding=embeddings,
+        documents=chunks,          # your list of Document objects
+        embedding=embeddings,      # your embeddings instance
         collection_name=collection_name,
-        persist_directory=CHROMA_DIR,
-        # metadata={"uploadDate": datetime.now().isoformat()},  # Optional custom metadata
+        persist_directory=CHROMA_DIR
     )
-
-    # Persist vectors to disk
-    vectordb.persist()
+    #vectordb.persist()
+    return f"Processed and stored: {collection_name}"
 
 
 # ------------------------------------------------------------------------
-# Helpers: detect document type, build prompts, list collections
+# Helpers: text retrieval & type detection
 # ------------------------------------------------------------------------
-
 def _get_all_text_from_collection(collection_name: str) -> str:
-    """
-    Safely reads raw documents from the underlying Chroma collection using the chromadb client.
-    This helps with document-type detection (claim vs medical) without re-reading the PDF.
-    """
     try:
         client = chromadb.PersistentClient(path=CHROMA_DIR)
         col = client.get_collection(name=collection_name)
@@ -98,26 +121,47 @@ def _get_all_text_from_collection(collection_name: str) -> str:
     except Exception:
         return ""
 
-def _detect_document_type(collection_name: str) -> str:
+
+def _detect_document_type(collection_name: str) -> tuple[str, str]:
     """
-    Detect if the document is:
-    - claim → claim form with policy number, claim number, insurer
-    - medical → prescriptions, lab reports, diagnoses
-    - general → everything else
+    Returns main_type, sub_type
+    main_type: claim | medical | hl7 | csv | general
+    sub_type: more granular, e.g., lab_report, prescription
     """
     text = _get_all_text_from_collection(collection_name)
 
     claim_markers = ["policy number", "claim number", "insurance provider", "coverage start", "coverage end"]
     medical_markers = ["prescription", "diagnosis", "medication", "drug", "tablet", "capsule", "ml", "mg", "lab result", "blood test"]
+    hl7_markers = ["MSH|", "PID|", "OBR|", "OBX|"]
+    csv_markers = [",", "\n"]
+
+    main_type = "general"
+    sub_type = None
 
     if any(m in text for m in claim_markers):
-        return "claim"
+        main_type = "claim"
+        sub_type = "insurance_claim"
     elif any(m in text for m in medical_markers):
-        return "medical"
-    else:
-        return "general"
+        main_type = "medical"
+        if "prescription" in text:
+            sub_type = "prescription"
+        elif "lab result" in text or "blood test" in text:
+            sub_type = "lab_report"
+        else:
+            sub_type = "medical_general"
+    elif any(m in text for m in hl7_markers):
+        main_type = "hl7"
+        sub_type = "hl7_message"
+    elif text.count(",") > 2:
+        main_type = "csv"
+        sub_type = "csv_data"
+
+    return main_type, sub_type
 
 
+# ------------------------------------------------------------------------
+# Prompt Templates
+# ------------------------------------------------------------------------
 def _claim_validation_prompt() -> PromptTemplate:
     template = """
 You are an expert in medical insurance claim processing and medical billing compliance.
@@ -126,54 +170,24 @@ Task:
 Validate the provided claim form for missing, blank, incomplete, or incorrect information.
 
 Mandatory Fields Checklist:
-1. Patient Information:
-   - Full Name
-   - Date of Birth
-   - Gender
-   - Address
-   - Contact Information (phone/email)
-2. Insurance Policy Details:
-   - Insurance Provider Name
-   - Policy Number
-   - Group Number (if applicable)
-   - Plan Type
-   - Coverage Start Date
-   - Coverage End Date
-   - Branch/Code (if applicable)
-3. Claim Information:
-   - Claim Number
-   - Date of Service (must be within coverage period)
-   - Provider Name
-   - Provider Address
-   - Diagnosis
-   - Treatment Provided
-   - Total Amount Billed
-   - Amount Covered by Insurance
-   - Patient Responsibility
-4. Supporting Documentation:
-   - Doctor’s Notes / Medical Reports
-   - Lab Reports / Test Results
-   - Bills & Receipts
-   - Discharge Summary (if applicable)
-5. Authorization & Declaration:
-   - Patient Signature
-   - Date of Patient Signature
-   - Provider Signature
-   - Date of Provider Signature
-   - Authorization for Release of Medical Information (if required)
+1. Patient Information: Full Name, Date of Birth, Gender, Address, Contact Info
+2. Insurance Policy Details: Provider, Policy Number, Group Number, Plan Type, Coverage Dates
+3. Claim Information: Claim Number, Date of Service, Provider Name, Diagnosis, Treatment, Billing Amounts
+4. Supporting Documentation: Doctor Notes, Lab Reports, Bills, Discharge Summary
+5. Authorization & Declaration: Patient & Provider Signatures, Authorization for Release
 
 Rules:
-- If a label is present but the value is empty → mark as missing.
-- If a field is not found in the document → mark as missing.
-- If the date of service is outside the coverage period → mark as inconsistent.
-- Always respond in this format exactly:
+- Label present but empty → mark as missing
+- Field not found → mark as missing
+- Date of service outside coverage → inconsistent
+- Respond exactly as:
 
 Potential Rejection Reasons:
 - <reason 1>
 - <reason 2>
 ...
 
-If no issues found, respond exactly with:
+If no issues:
 Potential Rejection Reasons:
 - No missing or incorrect information found — claim appears complete.
 
@@ -189,31 +203,18 @@ Question:
 def _medical_report_prompt() -> PromptTemplate:
     template = """
 You are a medical assistant AI. Use BOTH:
-- The provided PDF content.
-- Your general medical knowledge.
+- The PDF content
+- Your medical knowledge
 
 Task:
-1) Extract Patient Demographics (if present):
-   - Full Name, Age/DOB, Gender, Address, Contact Number
+Extract:
+1) Patient Demographics
+2) Doctor Demographics
+3) Diagnosis & Key Findings
+4) Medicines (Pros, Cons, Alternatives)
 
-2) Extract Doctor Demographics (if present):
-   - Full Name, Qualification, Registration/License Number, Hospital/Clinic Name, Address, Contact Number
-
-3) Diagnosis & Key Findings:
-   - List the main diagnosis and important clinical/lab findings.
-
-4) Medicines Mentioned:
-   - For each medicine, list:
-     • Pros (benefits, rationale, effectiveness)
-     • Cons (side effects, precautions)
-     • Alternatives — If not provided in the PDF, use your medical knowledge to suggest safe, common alternatives for the same condition, mentioning that these are general options and may not apply to every patient.
-
-5) Always include:
-   "This information is educational and not a medical diagnosis. Consult a qualified doctor before making any medical decisions."
-
-Rules:
-- Even if alternatives are not in the PDF, you MUST use your own knowledge to suggest commonly known options.
-- Be specific and concise.
+Always include:
+"This info is educational and not a medical diagnosis."
 
 PDF Content:
 {context}
@@ -224,36 +225,22 @@ Question:
 Your Structured Summary:
 """
     return PromptTemplate(template=template, input_variables=["context", "question"])
+
 
 def _general_document_prompt() -> PromptTemplate:
     template = """
 You are an AI document assistant. Use BOTH:
-- The provided PDF content.
-- Your general knowledge about forms, claims, and document validation.
+- PDF content
+- General knowledge
 
 Task:
-1) Extract Key Information (if present):
-   - Identify all mandatory fields relevant to the document type (e.g., Policy Number, Claim Number, Insurer Details, Patient/Client Details, Dates, Signatures).
-   - Explicitly note any missing or incomplete fields.
+1) Extract Key Information (mandatory fields)
+2) Validate Document (missing/inconsistent)
+3) List Potential Rejection Reasons
+4) Suggest corrective actions
 
-2) Validate Document:
-   - Check if required fields are correctly filled and consistent.
-   - Highlight errors, inconsistencies, or missing information.
-
-3) Potential Rejection Reasons:
-   - List all reasons why the document/claim could be rejected based on missing or incorrect information.
-   - Be specific and structured, referring to the fields causing potential rejection.
-
-4) Recommendations:
-   - Suggest corrective actions or information needed to complete the document.
-   - Do not provide personal or sensitive information beyond what’s in the PDF.
-
-5) Always include:
-   "This analysis is educational and for document validation purposes only. Confirm with relevant authority before submission."
-
-Rules:
-- Even if the PDF has missing data, you MUST identify potential rejection reasons.
-- Be concise, structured, and actionable.
+Always include:
+"This analysis is educational and for validation purposes only."
 
 PDF Content:
 {context}
@@ -266,46 +253,94 @@ Your Structured Summary:
     return PromptTemplate(template=template, input_variables=["context", "question"])
 
 
+def _hl7_prompt() -> PromptTemplate:
+    template = """
+You are an expert in healthcare HL7 messages.
+
+Task:
+1) Extract Patient Information from PID segment
+2) Extract Visit & Order Info from OBR segment
+3) Extract Observations from OBX segments
+4) Validate HL7 message: highlight missing or inconsistent fields
+5) Provide concise summary of key clinical findings
+
+Rules:
+- Be structured and specific
+- Always include: "This analysis is for educational purposes only."
+
+HL7 Content:
+{context}
+
+Question:
+{question}
+
+Structured Summary:
+"""
+    return PromptTemplate(template=template, input_variables=["context", "question"])
+
+
+def _csv_prompt() -> PromptTemplate:
+    template = """
+You are an AI document assistant specialized in CSV tabular data.
+
+Task:
+1) Read header & rows
+2) Identify mandatory columns (e.g., Patient ID, Policy Number, Date, Amount)
+3) Validate completeness & correctness of each row
+4) List missing, blank, or inconsistent fields
+5) Summarize key metrics (row count, errors found)
+
+Rules:
+- Be concise, structured, and actionable
+- Always include: "This analysis is for validation purposes only."
+
+CSV Content:
+{context}
+
+Question:
+{question}
+
+Structured Summary:
+"""
+    return PromptTemplate(template=template, input_variables=["context", "question"])
+
+
 # ------------------------------------------------------------------------
-# Main QA entry points (kept compatible with your original surface)
+# Main QA entry point
 # ------------------------------------------------------------------------
-def ask_question(pdf_name: str, query: str = None):
+def ask_question(collection_name: str, query: str = None):
+    """
+    Ask a question about a processed document collection.
+    Automatically selects the appropriate prompt based on document type.
+    """
     try:
         api_key = os.getenv("OPENAI_API_KEY")
-
-        embeddings = OpenAIEmbeddings(
-            model="text-embedding-3-small",
-            api_key=api_key
-        )
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-small", api_key=api_key)
 
         vectordb = Chroma(
-            collection_name=pdf_name,
+            collection_name=collection_name,
             embedding_function=embeddings,
             persist_directory=CHROMA_DIR,
         )
 
-        llm = ChatOpenAI(
-            model="gpt-4o-mini",
-            temperature=0.2,
-            api_key=api_key
-        )
-
-        doc_type = _detect_document_type(pdf_name)
+        llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, api_key=api_key)
+        doc_type, sub_type = _detect_document_type(collection_name)
 
         if doc_type == "claim":
             prompt = _claim_validation_prompt()
-            if query:
-                final_query = f"{query}\n\nAlso, audit this claim form and list all potential rejection reasons."
-            else:
-                final_query = "Audit this claim form and list all potential rejection reasons."
-
+            final_query = query or "Audit this claim form and list all potential rejection reasons."
         elif doc_type == "medical":
             prompt = _medical_report_prompt()
-            final_query = query or "Extract demographics, diagnosis, and analyze medicines (pros/cons/alternatives)."
-
-        else:  # general documents
+            final_query = query or "Extract demographics, diagnosis, and analyze medicines."
+        elif doc_type == "hl7":
+            prompt = _hl7_prompt()
+            final_query = query or "Extract patient info, visit details, observations, and validate HL7 message."
+        elif doc_type == "csv":
+            prompt = _csv_prompt()
+            final_query = query or "Validate CSV, highlight missing/inconsistent fields, summarize key metrics."
+        else:
             prompt = _general_document_prompt()
-            final_query = query or "Summarize and answer questions about this document."
+            final_query = query or "Summarize and validate this document."
 
         qa = RetrievalQA.from_chain_type(
             llm=llm,
@@ -321,13 +356,13 @@ def ask_question(pdf_name: str, query: str = None):
         return {"error": str(e)}
 
 
+# ------------------------------------------------------------------------
+# Utility: list all processed PDFs / collections
+# ------------------------------------------------------------------------
 def pdflist_collectionso():
-    """
-    Utility: list all available Chroma collections (i.e., processed PDFs).
-    """
     client = chromadb.PersistentClient(path=CHROMA_DIR)
     collections = client.list_collections()
-    # col.metadata is a dict where you can put custom info during ingestion if desired
+    pprint.pprint(collections)
     return [
         {
             "name": col.name,

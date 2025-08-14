@@ -5,7 +5,7 @@ import { pdfApi } from '../services/api';
 import { useToast } from '../hooks/useToast';
 
 interface ChatBoxProps {
-  selectedPDF: string | null;
+  selectedDocument: string | null;
 }
 
 const EXAMPLE_QUESTIONS = [
@@ -17,7 +17,7 @@ const EXAMPLE_QUESTIONS = [
   "Are there any important dates or numbers mentioned?",
 ];
 
-const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
+const ChatBox: React.FC<ChatBoxProps> = ({ selectedDocument }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!inputValue.trim() || !selectedPDF || isLoading) {
+    if (!inputValue.trim() || !selectedDocument || isLoading) {
       return;
     }
 
@@ -53,7 +53,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
     setIsLoading(true);
 
     try {
-      const response = await pdfApi.askQuestion(selectedPDF, currentQuestion);
+      const response = await pdfApi.askQuestion(selectedDocument, currentQuestion);
       
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -110,7 +110,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
           <div>
             <h2 className="text-xl font-bold text-gray-900">Ask Questions</h2>
             <p className="text-sm text-gray-600">
-              {selectedPDF ? `Chatting about: ${selectedPDF}` : 'Select a PDF to start chatting'}
+              {selectedDocument ? `Chatting about: ${selectedDocument}` : 'Select a Document to start chatting'}
             </p>
           </div>
         </div>
@@ -127,24 +127,24 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-6 space-y-4">
-        {messages.length === 0 && !selectedPDF && (
+        {messages.length === 0 && !selectedDocument && (
           <div className="text-center py-12">
             <div className="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
               <MessageCircle className="w-8 h-8 text-gray-400" />
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">Ready to Help!</h3>
-            <p className="text-gray-600">Upload and select a PDF to start asking questions about it.</p>
+            <p className="text-gray-600">Upload and select a document to start asking questions about it.</p>
           </div>
         )}
 
-        {messages.length === 0 && selectedPDF && (
+        {messages.length === 0 && selectedDocument && (
           <div className="space-y-6">
             <div className="text-center py-8">
               <div className="w-16 h-16 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <Bot className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Let's Explore Your PDF!</h3>
-              <p className="text-gray-600">Ask me anything about <span className="font-medium text-purple-600">{selectedPDF}</span></p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Let's Explore Your Document!</h3>
+              <p className="text-gray-600">Ask me anything about <span className="font-medium text-purple-600">{selectedDocument}</span></p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-4">
@@ -246,16 +246,16 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={
-              !selectedPDF 
-                ? "Select a PDF first..." 
+              !selectedDocument 
+                ? "Select a document first..." 
                 : "Ask a question about the PDF..."
             }
-            disabled={!selectedPDF || isLoading}
+            disabled={!selectedDocument || isLoading}
             className={`
               flex-1 px-4 py-3 border border-gray-300 rounded-xl
               focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent
               transition-all duration-200
-              ${!selectedPDF || isLoading 
+              ${!selectedDocument || isLoading 
                 ? 'opacity-50 cursor-not-allowed bg-gray-50' 
                 : 'hover:border-gray-400'
               }
@@ -263,11 +263,11 @@ const ChatBox: React.FC<ChatBoxProps> = ({ selectedPDF }) => {
           />
           <button
             type="submit"
-            disabled={!selectedPDF || !inputValue.trim() || isLoading}
+            disabled={!selectedDocument || !inputValue.trim() || isLoading}
             className={`
               px-6 py-3 rounded-xl font-medium transition-all duration-200
               flex items-center space-x-2
-              ${!selectedPDF || !inputValue.trim() || isLoading
+              ${!selectedDocument || !inputValue.trim() || isLoading
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-purple-600 text-white hover:bg-purple-700 active:transform active:scale-95'
               }

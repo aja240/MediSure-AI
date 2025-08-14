@@ -1,6 +1,7 @@
 langchain
 langchain-community
 langchain-openai
+langchain_chroma
 chromadb
 fastapi
 uvicorn[standard]
@@ -11,3 +12,4 @@ pydantic
 openai
 python-multipart
 pypdf
+pandas
