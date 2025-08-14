@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import os
-from qa import process_document, ask_question,pdflist_collectionso
+from doc_analyzer import process_document, ask_question,pdflist_collectionso
 
 app = FastAPI()
 
