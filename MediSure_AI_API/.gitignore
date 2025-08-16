@@ -1,1 +1,13 @@
 venv/
+vector_store/
+uploads/
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.DS_Store
+*.egg-info/
