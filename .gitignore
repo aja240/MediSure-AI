@@ -2,3 +2,5 @@
 /MediSure_AI_API/vector_store
 /MediSure_AI_API/uploads
 /MediSure_AI_API/vector_store
+MediSure_AI_API/vector_store/chroma.sqlite3
+/MediSure_AI_API/__pycache__

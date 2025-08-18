@@ -376,11 +376,11 @@ def ask_question(collection_name: str, query: str = None):
             # Use PDF-specific prompt if collection came from PDF
             if collection_name.lower().endswith(".pdf"):
                 prompt = _claim_validation_prompt()
-                final_query = query or "Audit this PDF claim form and list all potential rejection reasons."
+                final_query = query or "Audit this PDF claim form, summarize and list all potential rejection reasons."
             else:
                 # Use tabular/text prompt for CSV/JSON/TXT
                 prompt = _insurance_claim_prompt()
-                final_query = query or "Audit this insurance claim data and list all potential rejection reasons."
+                final_query = query or "Audit this insurance claim data , summarize and list all potential rejection reasons."
         elif doc_type == "medical":
             prompt = _medical_report_prompt()
             final_query = query or "Extract demographics, diagnosis, and analyze medicines."
