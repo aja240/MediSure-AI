@@ -42,6 +42,16 @@ pip install -r requirements.txt
 ### Run the FastAPI server
 uvicorn main:app --reload
 
+🔹Delete the old virtual environment completely
+
+If you want to remove it:
+
+# macOS / Linux
+rm -rf venv
+
+# Windows (PowerShell / CMD)
+rmdir /s /q venv
+
 pdf_qa_backend/
 ├── main.py               # FastAPI app
 ├── qa.py                 # LangChain logic

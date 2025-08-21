@@ -28,6 +28,7 @@ async def upload_doc(file: UploadFile = File(...)):
 @app.post("/ask")
 async def ask(pdf_name: str = Form(...), question: str = Form(...)):
     try:
+        print(f"Received question: {question} for PDF: {pdf_name}")
         result = ask_question(pdf_name, question)
         return JSONResponse(content={"answer": result['result']})
     except Exception as e:
